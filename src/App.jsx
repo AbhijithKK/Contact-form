@@ -1,11 +1,11 @@
-import { useState } from 'react'
 import './App.css'
+import Contact from './Components/ContactPage/Contact'
 
 function App() {
 
   return (
     <>
-     kjjj
+    <Contact/>
         
     </>
   )

@@ -1,9 +1,9 @@
 import './Labels.css'
 
-const Labels = () => {
+const Labels = ({Name}) => {
   return (
     <div>
-      label
+     <label>{Name} <span>*</span></label>
     </div>
   )
 }
