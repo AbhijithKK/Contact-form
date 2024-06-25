@@ -1,9 +1,9 @@
 import './InputBox.css'
 
-const InputBox = () => {
+const InputBox = ({style,type,radioGroup}) => {
   return (
     <div>
-      input
+     <input type={type} radioGroup={radioGroup} style={style} ></input>
     </div>
   )
 }

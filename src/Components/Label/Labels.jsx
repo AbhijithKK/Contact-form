@@ -1,9 +1,14 @@
 import './Labels.css'
 
-const Labels = ({Name}) => {
+const Labels = ({Name,ContainerStyles,Required}) => {
   return (
-    <div>
-     <label>{Name} <span>*</span></label>
+    <div style={ContainerStyles}>
+     <label>{Name}
+     {Required&&
+      <span>&nbsp;*</span>
+    }
+    <span>&nbsp;</span>
+    </label>
     </div>
   )
 }
