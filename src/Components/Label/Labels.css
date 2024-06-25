@@ -1,9 +1,17 @@
 label{
 font-style:oblique ;
-color: rgb(83, 82, 82);
+color: hsl(187, 24%, 22%);
 font-size: 16px;
 }
 
 span{
     color: green;
+}
+.mobile{
+    display: none;
+}
+@media (min-width:320px) {
+    .mobile{
+        display: block;
+    }
 }

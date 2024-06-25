@@ -7,7 +7,7 @@ const Labels = ({Name,ContainerStyles,Required}) => {
      {Required&&
       <span>&nbsp;*</span>
     }
-    <span>&nbsp;</span>
+    <span >&nbsp;</span>
     </label>
     </div>
   )

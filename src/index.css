@@ -3,21 +3,21 @@
   font-family: 'localFonts';
   src:   url('./assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
   
-  font-weight: normal;
+  font-weight: 400 700;
 font-style: normal;
 }
 @font-face {
   font-family: 'localFonts';
   src:   url('./assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
   
-  font-weight: normal;
+  font-weight: 400 700;
 font-style: italic;
 }
 @font-face {
   font-family: 'localFonts';
   src:     url('./assets/fonts/static/Karla-Bold.ttf') format('truetype')  ;
   
-  font-weight: normal;
+  font-weight: 400 700;
 font-style: inherit;
 }
 
@@ -26,7 +26,7 @@ font-style: inherit;
   font-family: 'localFonts';
   src:  url('./assets/fonts/static/Karla-Regular.ttf') format('truetype')  ;
   
-  font-weight: normal;
+  font-weight: 400 700;
 font-style: oblique;
 }
 

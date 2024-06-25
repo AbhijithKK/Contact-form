@@ -5,12 +5,34 @@ const Contact = () => {
   const LabelStyle = {
     marginBottom: "8px",
   };
+
   const inputstyle = {
     width: "100%",
     height: "30px",
     borderRadius: "5px",
-    border: "1px solid hsl(148, 38%, 70%)",
+    border: "1px solid hsl(186, 15%, 59%)",
   };
+  const checkboxStyle = {
+    display:'flex',
+    borderRadius: "5px",
+    border: "1px solid hsl(186, 15%, 59%)",
+  };
+  const inputstyletextArea = {
+    width: "100%",
+    borderRadius: "5px",
+    border: "1px solid hsl(186, 15%, 59%)",
+  };
+
+  const radio={
+    height: "30px",
+
+    borderRadius: '5px',
+    border: "1px solid hsl(186, 15%, 59%)",
+    display:'flex',
+    alignItems:'center',
+    paddingLeft:'10px',
+    gap:'5px'
+}
   return (
     <>
       <div className="main-container">
@@ -34,19 +56,40 @@ const Contact = () => {
               </div>
             </div>
             <div className="row1-container">
-              <div className="row1">
+              <div className="row1 radio">
                 <Labels Required={true} Name={"Qery Type"} ContainerStyles={LabelStyle} />
-                <InputBox type={'radio'} radioGroup={'a'} style={inputstyle} />
+                <div style={radio}>
+
+                <InputBox type={'radio'} name={'radio'}   />
+                <label>General Enquiry</label>
+
+                </div>
               </div>
               <div className="row1">
                 <Labels Required={false} Name={""} ContainerStyles={LabelStyle} />
-                <InputBox type={'radio'} radioGroup={'a'} style={inputstyle} />
+                <div style={radio}>
+                <InputBox type={'radio'} name={'radio'} value={'a'} />
+                <label>Support Request</label>
+                </div>
+
               </div>
             </div>
             <div className="row2-container">
               <div className="row1">
                 <Labels Required={true} Name={"Message"} ContainerStyles={LabelStyle} />
-                <InputBox type={'text-area'} style={inputstyle} />
+                <textarea rows={6} style={inputstyletextArea}></textarea>
+              </div>
+            </div>
+
+            <div className="row3-container">
+              <div className="row-checkbox">
+                <InputBox type={'checkbox'} style={checkboxStyle} />
+                <Labels Required={true} Name={"I consent to being contacted the team"}  />
+              </div>
+            </div>
+            <div className="row4-container">
+              <div className="row-button">
+                <button className="button">Submit</button>
               </div>
             </div>
           </div>
