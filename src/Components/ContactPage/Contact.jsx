@@ -121,7 +121,7 @@ const Contact = () => {
                   Name={"Message"}
                   ContainerStyles={LabelStyle}
                 />
-                <textarea rows={6} style={inputstyletextArea}></textarea>
+                <textarea className="textarea" style={inputstyletextArea}></textarea>
               </div>
             </div>
 
