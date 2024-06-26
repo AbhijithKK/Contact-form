@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import InputBox from "../InputBox/InputBox";
 import Labels from "../Label/Labels";
 import "./Contact.css";
@@ -6,12 +7,12 @@ const Contact = () => {
     marginBottom: "8px",
   };
 
-  const inputstyle = {
-    width: "100%",
-    height: "30px",
-    borderRadius: "5px",
-    border: "1px solid hsl(186, 15%, 59%)",
-  };
+  // const inputstyle = {
+  //   width: "100%",
+  //   height: "30px",
+  //   borderRadius: "5px",
+  //   border: "1px solid hsl(186, 15%, 59%)",
+  // };
   const checkboxStyle = {
     display: "flex",
     borderRadius: "5px",
@@ -31,8 +32,27 @@ const Contact = () => {
     alignItems: "center",
     paddingLeft: "10px",
     gap: "5px",
-    flex:'1 1 auto'
+    flex:'1 1 auto',
+
+    
   };
+  const [radios1,setRadio1]=useState(null)
+  const [radios2,setRadio2]=useState(null)
+  const setRadios1=(e)=>{
+    setRadio1(e.target.checked)
+    setRadio2(false)
+
+  }
+  const setRadios2=(e)=>{
+    setRadio2(e.target.checked)
+    setRadio1(false)
+
+  }
+
+  console.log(radios1);
+  useEffect(()=>{
+
+  },[radios1,radios2])
   return (
     <>
       <div className="main-container">
@@ -45,14 +65,14 @@ const Contact = () => {
                   Name={"First Name"}
                   ContainerStyles={LabelStyle}
                 />
-                <InputBox type={"text"} style={inputstyle} />
+                <InputBox type={"text"}  />
               </div>
               <div className="row1">
                 <Labels
                   Name={"Last Name"}
                   ContainerStyles={LabelStyle}
                 />
-                <InputBox type={"text"} style={inputstyle} />
+                <InputBox type={"text"} />
               </div>
             </div>
             <div className="row2-container">
@@ -61,7 +81,7 @@ const Contact = () => {
                   Name={"Email Address"}
                   ContainerStyles={LabelStyle}
                 />
-                <InputBox type={"email"} style={inputstyle} />
+                <InputBox type={"email"}  />
               </div>
             </div>
 
@@ -83,31 +103,22 @@ const Contact = () => {
                   display:'flex',
                   gap:'15px',
                   width:'100%',
-                  flexWrap:'wrap'
+                  flexWrap:'wrap',
                 }}>
 
-                <div style={radio}>
-                  <InputBox type={"radio"} name={"radio"} />
+                <div style={radio} className={radios1?'newRadio':''}>
+                  <InputBox type={"radio"} name={"radio"} onchangeFnc={setRadios1}  value={"Enquiry"}  />
                   <label>General Enquiry</label>
                 </div>
 
-              <div style={radio}>
-                  <InputBox type={"radio"} name={"radio"} value={"a"} />
+              <div style={radio} className={radios2?'newRadio':''} >
+                  <InputBox type={"radio"} name={"radio"} onchangeFnc={setRadios2}  value={"Request"} />
                   <label>Support Request</label>
                 </div>
               </div>
 
 
                 </div>
-
-              {/* <div className="row1">
-                <Labels
-                  Required={false}
-                  Name={""}
-                  ContainerStyles={LabelStyle}
-                />
-               
-              </div> */}
             </div>
 
 

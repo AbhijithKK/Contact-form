@@ -8,7 +8,7 @@
 }
 .form {
   width: 520px;
-  height: 550px;
+  height: 650px;
   background-color: hsl(0, 0%, 100%);
   border-radius: 7px;
   padding: 5%;
@@ -54,6 +54,16 @@
 .textarea {
   height: 100px;
 }
+.textarea:focus{
+    outline: none;
+    border: 2px solid hsl(169, 82%, 27%) !important;
+
+}
+.newRadio{
+    border: 2px solid hsl(169, 82%, 27%) !important;
+background-color:hsl(148, 38%, 91%);
+}
+
 @media (max-width: 375px) {
   .form {
     width: 520px;

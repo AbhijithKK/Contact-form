@@ -1,0 +1,11 @@
+
+input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid hsl(186, 15%, 59%);
+}
+input:focus{
+border: 2px solid hsl(169, 82%, 27%) !important;
+outline: none;
+}
