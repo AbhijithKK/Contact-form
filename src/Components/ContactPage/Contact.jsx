@@ -13,7 +13,7 @@ const Contact = () => {
     border: "1px solid hsl(186, 15%, 59%)",
   };
   const checkboxStyle = {
-    display:'flex',
+    display: "flex",
     borderRadius: "5px",
     border: "1px solid hsl(186, 15%, 59%)",
   };
@@ -23,16 +23,16 @@ const Contact = () => {
     border: "1px solid hsl(186, 15%, 59%)",
   };
 
-  const radio={
+  const radio = {
     height: "30px",
-
-    borderRadius: '5px',
+    borderRadius: "5px",
     border: "1px solid hsl(186, 15%, 59%)",
-    display:'flex',
-    alignItems:'center',
-    paddingLeft:'10px',
-    gap:'5px'
-}
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: "10px",
+    gap: "5px",
+    flex:'1 1 auto'
+  };
   return (
     <>
       <div className="main-container">
@@ -41,50 +41,96 @@ const Contact = () => {
           <div className="input-boxes">
             <div className="row1-container">
               <div className="row1">
-                <Labels Required={true} Name={"First Name"} ContainerStyles={LabelStyle} />
-                <InputBox type={'text'} style={inputstyle} />
+                <Labels
+                  Name={"First Name"}
+                  ContainerStyles={LabelStyle}
+                />
+                <InputBox type={"text"} style={inputstyle} />
               </div>
               <div className="row1">
-                <Labels Required={true} Name={"Last Name"} ContainerStyles={LabelStyle} />
-                <InputBox type={'text'} style={inputstyle} />
+                <Labels
+                  Name={"Last Name"}
+                  ContainerStyles={LabelStyle}
+                />
+                <InputBox type={"text"} style={inputstyle} />
               </div>
             </div>
             <div className="row2-container">
               <div className="row1">
-                <Labels Required={true} Name={"Email Address"} ContainerStyles={LabelStyle} />
-                <InputBox type={'email'} style={inputstyle} />
+                <Labels
+                  Name={"Email Address"}
+                  ContainerStyles={LabelStyle}
+                />
+                <InputBox type={"email"} style={inputstyle} />
               </div>
             </div>
+
+
+
+
+
+
+
+
+
             <div className="row1-container">
               <div className="row1 radio">
-                <Labels Required={true} Name={"Qery Type"} ContainerStyles={LabelStyle} />
+                <Labels
+                  Name={"Qery Type"}
+                  ContainerStyles={LabelStyle}
+                />
+                <div style={{
+                  display:'flex',
+                  gap:'15px',
+                  width:'100%',
+                  flexWrap:'wrap'
+                }}>
+
                 <div style={radio}>
+                  <InputBox type={"radio"} name={"radio"} />
+                  <label>General Enquiry</label>
+                </div>
 
-                <InputBox type={'radio'} name={'radio'}   />
-                <label>General Enquiry</label>
-
+              <div style={radio}>
+                  <InputBox type={"radio"} name={"radio"} value={"a"} />
+                  <label>Support Request</label>
                 </div>
               </div>
-              <div className="row1">
-                <Labels Required={false} Name={""} ContainerStyles={LabelStyle} />
-                <div style={radio}>
-                <InputBox type={'radio'} name={'radio'} value={'a'} />
-                <label>Support Request</label>
+
+
                 </div>
 
-              </div>
+              {/* <div className="row1">
+                <Labels
+                  Required={false}
+                  Name={""}
+                  ContainerStyles={LabelStyle}
+                />
+               
+              </div> */}
             </div>
+
+
+
+
+
+
             <div className="row2-container">
               <div className="row1">
-                <Labels Required={true} Name={"Message"} ContainerStyles={LabelStyle} />
+                <Labels
+                  Name={"Message"}
+                  ContainerStyles={LabelStyle}
+                />
                 <textarea rows={6} style={inputstyletextArea}></textarea>
               </div>
             </div>
 
             <div className="row3-container">
               <div className="row-checkbox">
-                <InputBox type={'checkbox'} style={checkboxStyle} />
-                <Labels Required={true} Name={"I consent to being contacted the team"}  />
+                <InputBox type={"checkbox"} style={checkboxStyle} />
+                <Labels
+                  Name={"I consent to being contacted the team"}
+                />
               </div>
             </div>
             <div className="row4-container">
