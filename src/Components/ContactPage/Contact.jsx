@@ -3,18 +3,27 @@ import InputBox from "../InputBox/InputBox";
 import Labels from "../Label/Labels";
 import "./Contact.css";
 import { userSchema } from "../Validation/Validation";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
 const CustomToast = ({ message, subMessage, svgUrl }) => (
-  <div style={{  backgroundColor: ' rgb(13, 49, 11)', color: 'white', padding: '10px', borderRadius: '8px' }}>
-    <div style={{display: 'flex', alignItems: 'center',}}>
-
-    <img src={svgUrl} alt="icon" style={{ width: '15px', height: '15px', marginRight: '10px' }} />
+  <div
+    style={{
+      backgroundColor: " rgb(13, 49, 11)",
+      color: "white",
+      padding: "10px",
+      borderRadius: "8px",
+    }}
+  >
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <img
+        src={svgUrl}
+        alt="icon"
+        style={{ width: "15px", height: "15px", marginRight: "10px" }}
+      />
       <div>{message}</div>
     </div>
-      <div style={{ fontSize: 'smaller', color: '#aaa' }}>{subMessage}</div>
-    <div>
-    </div>
+    <div style={{ fontSize: "smaller", color: "#aaa" }}>{subMessage}</div>
+    <div></div>
   </div>
 );
 
@@ -42,10 +51,10 @@ const Contact = () => {
   const [radios1, setRadio1] = useState(null);
   const [radios2, setRadio2] = useState(null);
   const [checkbox, setCheckBox] = useState(false);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState({});
 
   const setRadios1 = (e) => {
@@ -59,19 +68,34 @@ const Contact = () => {
   };
 
   const SubmitData = async () => {
+    let temp = {
+      firstName: undefined,
+      lastName: undefined,
+      email: undefined,
+      message: undefined,
+      checkbox: undefined,
+      radio: undefined,
+    };
     try {
-      let userData = await userSchema.validate({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        message: message,
-        checkbox: checkbox,
-        radio: radios1
-      }, { abortEarly: false });
+      let userData = await userSchema.validate(
+        {
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          message: message,
+          checkbox: checkbox,
+          radio: radios1,
+        },
+        { abortEarly: false }
+      );
 
-      const svgUrl = '/src/assets/images/icon-success-check.svg'; 
-
+      const svgUrl = "/src/assets/images/icon-success-check.svg";
+      if (userData) {
+        setErrorMessage(temp);
+        
+      }
       toast.custom((t) => (
+        
         <CustomToast
           message="Message Sent!"
           subMessage="Thanks for completing the form.We'll be in touch soon!"
@@ -79,15 +103,8 @@ const Contact = () => {
         />
       ));
     } catch (error) {
-      if (error.name === 'ValidationError') {
-        let temp = {
-          firstName: undefined,
-          lastName: undefined,
-          email: undefined,
-          message: undefined,
-          checkbox: undefined,
-          radio: undefined,
-        };
+      if (error.name === "ValidationError") {
+        
         error.inner.forEach((err) => {
           temp[err.path] = err.message;
         });
@@ -95,6 +112,7 @@ const Contact = () => {
       }
     }
   };
+  const svgCheckbox = "/src/assets/images/icon-checkbox-check.svg";
 
   return (
     <>
@@ -106,26 +124,48 @@ const Contact = () => {
             <div className="row1-container">
               <div className="row1">
                 <Labels Name={"First Name"} ContainerStyles={LabelStyle} />
-                <InputBox className={errorMessage?.firstName ? 'errorBorder' : ''} type={"text"} value={firstName} onchangeFnc={(e) => setFirstName(e.target.value)} />
+                <InputBox
+                  className={errorMessage?.firstName ? "errorBorder" : ""}
+                  type={"text"}
+                  value={firstName}
+                  onchangeFnc={(e) => setFirstName(e.target.value)}
+                />
                 <small>{errorMessage?.firstName}</small>
               </div>
               <div className="row1">
                 <Labels Name={"Last Name"} ContainerStyles={LabelStyle} />
-                <InputBox className={errorMessage?.firstName ? 'errorBorder' : ''} type={"text"} value={lastName} onchangeFnc={(e) => setLastName(e.target.value)} />
+                <InputBox
+                  className={errorMessage?.firstName ? "errorBorder" : ""}
+                  type={"text"}
+                  value={lastName}
+                  onchangeFnc={(e) => setLastName(e.target.value)}
+                />
                 <small>{errorMessage?.lastName}</small>
               </div>
             </div>
             <div className="row2-container">
               <div className="row1">
                 <Labels Name={"Email Address"} ContainerStyles={LabelStyle} />
-                <InputBox className={errorMessage?.firstName ? 'errorBorder' : ''} type={"email"} value={email} onchangeFnc={(e) => setEmail(e.target.value)} />
+                <InputBox
+                  className={errorMessage?.firstName ? "errorBorder" : ""}
+                  type={"email"}
+                  value={email}
+                  onchangeFnc={(e) => setEmail(e.target.value)}
+                />
                 <small>{errorMessage?.email}</small>
               </div>
             </div>
             <div className="row1-container">
               <div className="row1 radio">
                 <Labels Name={"Query Type"} ContainerStyles={LabelStyle} />
-                <div style={{ display: "flex", gap: "15px", width: "100%", flexWrap: "wrap" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "15px",
+                    width: "100%",
+                    flexWrap: "wrap",
+                  }}
+                >
                   <div style={radio} className={radios1 ? "newRadio" : ""}>
                     <InputBox
                       type={"radio"}
@@ -152,8 +192,11 @@ const Contact = () => {
               <div className="row1">
                 <Labels Name={"Message"} ContainerStyles={LabelStyle} />
                 <textarea
-                  className={errorMessage?.message ? 'textarea errorBorder' : 'textarea'}
-                  onChange={(e) => setMessage(e.target.value)} value={message}
+                  className={
+                    errorMessage?.message ? "textarea errorBorder" : "textarea"
+                  }
+                  onChange={(e) => setMessage(e.target.value)}
+                  value={message}
                 ></textarea>
                 <small>{errorMessage?.message}</small>
               </div>
@@ -161,7 +204,15 @@ const Contact = () => {
             <div className="row3-container">
               <div>
                 <div className="row-checkbox">
-                  <InputBox type={"checkbox"} style={checkboxStyle} value={checkbox} onchangeFnc={(e) => setCheckBox(e.target.checked)} />
+                  <InputBox 
+                  className={'input-checkbox'}
+                    type={"checkbox"}
+                    style={checkboxStyle}
+                    value={checkbox}
+                    onchangeFnc={(e) => setCheckBox(e.target.checked)}
+                  />
+                 <label className="checkbox-container" htmlFor="checkbox"></label>
+                 <img className={checkbox?'svg-checkboxOn':'svg-checkbox'} src={svgCheckbox} alt="" />
                   <Labels Name={"I consent to being contacted the team"} />
                 </div>
                 <small>{errorMessage?.checkbox}</small>
@@ -169,7 +220,9 @@ const Contact = () => {
             </div>
             <div className="row4-container">
               <div className="row-button">
-                <button onClick={SubmitData} className="button">Submit</button>
+                <button onClick={SubmitData} className="button">
+                  Submit
+                </button>
               </div>
             </div>
           </div>
