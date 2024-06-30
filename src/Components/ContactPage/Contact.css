@@ -113,9 +113,18 @@ small{
   opacity: 1;
 }
 
+.radio-input{
+  appearance: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  /* outline-offset: 3px; */
+  border-radius: 50%;
+  outline: 2px solid hsl(169, 82%, 27%);
+}
 
-
-
+.radio-input:checked{
+  background-color: hsl(169, 82%, 27%);
+}
 
 
 @media (max-width: 375px) {

@@ -172,6 +172,8 @@ const Contact = () => {
                       name={"radio"}
                       onchangeFnc={setRadios1}
                       value={"Enquiry"}
+                      className={'radio-input'}
+
                     />
                     <label>General Enquiry</label>
                   </div>
@@ -181,6 +183,7 @@ const Contact = () => {
                       name={"radio"}
                       onchangeFnc={setRadios2}
                       value={"Request"}
+                      className={'radio-input'}
                     />
                     <label>Support Request</label>
                   </div>
