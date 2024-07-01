@@ -8,8 +8,8 @@
   overflow-x: hidden;
 }
 .form {
-  width: 520px;
-  height: 40rem;
+  /* width: 520px; */
+  /* height: 40rem; */
   background-color: hsl(0, 0%, 100%);
   border-radius: 7px;
   padding: 5%;
@@ -115,8 +115,8 @@ small{
 
 @media (max-width: 375px) {
   .form {
-    width: 520px;
-    height: 50rem;
+    /* width: 520px; */
+    /* height: 50rem; */
     background-color: hsl(0, 0%, 100%);
     border-radius: 7px;
     padding: 5%;
