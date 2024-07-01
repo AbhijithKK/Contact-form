@@ -5,35 +5,38 @@
   align-items: center;
   justify-content: center;
   background-color: hsl(148, 38%, 91%);
+  overflow-x: hidden;
 }
 .form {
   width: 520px;
-  height: 680px;
+  height: 40rem;
   background-color: hsl(0, 0%, 100%);
   border-radius: 7px;
   padding: 5%;
   margin: 10px;
+  display: grid;
+  align-content: center;
 }
 .input-boxes {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .row1-container {
   display: flex;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
 }
 .row2-container {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .row3-container {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
 .row4-container {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .row1 {
   flex: 1 1 auto;
@@ -102,7 +105,7 @@ small{
   height: 0.8rem;
   /* outline-offset: 3px; */
   border-radius: 50%;
-  outline: 2px solid hsl(169, 82%, 27%);
+  outline: 1px solid hsl(169, 82%, 27%);
 }
 
 .radio-input:checked{
@@ -113,30 +116,18 @@ small{
 @media (max-width: 375px) {
   .form {
     width: 520px;
-    height: 730px;
+    height: 50rem;
     background-color: hsl(0, 0%, 100%);
     border-radius: 7px;
     padding: 5%;
     margin: 10px;
+    display: grid;
+    align-content: center;
+    margin-top: 25px;
   }
   .textarea {
     height: 150px;
   }
 
-
-  .checkbox-container {
-    position: relative;
-    width: 24px;
-    height: 20px;
-    border: 2px solid hsl(186, 15%, 59%);
-    border-radius: 5px;
-    margin-right: 10px;
-    left: 1.5px;
-  }
-.svg-checkbox{
- margin-left: -36px;
-  /* opacity: 01; */
-  width: 15px;
-}
 
 }

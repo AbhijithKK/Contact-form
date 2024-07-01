@@ -130,7 +130,7 @@ const Contact = () => {
                   value={firstName}
                   onchangeFnc={(e) => setFirstName(e.target.value)}
                 />
-                <small>{errorMessage?.firstName}</small>
+                <small>{errorMessage?.firstName} &nbsp;</small>
               </div>
               <div className="row1">
                 <Labels Name={"Last Name"} ContainerStyles={LabelStyle} />
@@ -140,7 +140,7 @@ const Contact = () => {
                   value={lastName}
                   onchangeFnc={(e) => setLastName(e.target.value)}
                 />
-                <small>{errorMessage?.lastName}</small>
+                <small>{errorMessage?.lastName} &nbsp;</small>
               </div>
             </div>
             <div className="row2-container">
@@ -152,7 +152,7 @@ const Contact = () => {
                   value={email}
                   onchangeFnc={(e) => setEmail(e.target.value)}
                 />
-                <small>{errorMessage?.email}</small>
+                <small>{errorMessage?.email} &nbsp;</small>
               </div>
             </div>
             <div className="row1-container">
@@ -188,7 +188,7 @@ const Contact = () => {
                     <label>Support Request</label>
                   </div>
                 </div>
-                <small>{errorMessage?.radio}</small>
+                <small>{errorMessage?.radio} &nbsp;</small>
               </div>
             </div>
             <div className="row2-container">
@@ -201,7 +201,7 @@ const Contact = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   value={message}
                 ></textarea>
-                <small>{errorMessage?.message}</small>
+                <small>{errorMessage?.message} &nbsp;</small>
               </div>
             </div>
             <div className="row3-container">
@@ -216,7 +216,7 @@ const Contact = () => {
                   />
                   <Labels Name={"I consent to being contacted the team"} />
                 </div>
-                <small>{errorMessage?.checkbox}</small>
+                <small>{errorMessage?.checkbox} &nbsp;</small>
               </div>
             </div>
             <div className="row4-container">
