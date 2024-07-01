@@ -214,8 +214,6 @@ const Contact = () => {
                     value={checkbox}
                     onchangeFnc={(e) => setCheckBox(e.target.checked)}
                   />
-                 <label className="checkbox-container" htmlFor="checkbox"></label>
-                 <img className={checkbox?'svg-checkboxOn':'svg-checkbox'} src={svgCheckbox} alt="" />
                   <Labels Name={"I consent to being contacted the team"} />
                 </div>
                 <small>{errorMessage?.checkbox}</small>
